@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<title>FORMULIR PENDAFTARAN MAHASISWA</title>
+	<style>
+		body {
+			font-family: "Arial Black", sans-serif;
+			background-color: lightblue;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 200vh;
+			margin: 0;
+			}
+
+			.kotakform {
+				background-color: cream;
+				padding: 40px;
+				border-spacing: 20px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 1.0);
+				width: 320px;
+				text-align: center;
+				transition: 0.5s;
+
+			}
+
+			h2 {
+				color: #333;
+				margin-bottom: 15px;
+
+			}
+			input {
+				width: 90%;
+				padding: 8px;
+				margin: 8px 0;
+				border-radius: 8px;
+				border: 1px solid #ccc;
+				font-size: 14px;
+			}
+			button {
+				background-color: #5fd4b3;
+				color: white;
+				padding: 10px 20px;
+				border: none;
+				border-radius: 10px;
+				font-size: 14px;
+				cursor: pointer;
+				margin-top: 10px;
+				width: 100%;
+			}
+			button:hover {
+				background-color: #3fb595;
+			}
+			.hidden {
+				display: none;
+			}
+			.hasil {
+				text-align: left;
+			}
+			.hasil b {
+				color: #0d7c66;
+			}
+	</style>
+</head>
+<body>
+<div id="formCard" class="card">
+    <h2>Input Data</h2>
+    <label>Masukkan Nama :</label><br>
+    <input type="text" id="nama" placeholder="Masukkan nama"><br>
+
+    <label>Masukkan Alamat :</label><br>
+    <input type="text" id="alamat" placeholder="Masukkan alamat"><br>
+
+    <label>Masukkan Umur :</label><br>
+    <input type="number" id="umur" placeholder="Masukkan umur"><br>
+
+    <label>Masukkan Kelas :</label><br>
+    <input type="text" id="kelas" placeholder="Masukkan kelas"><br>
+
+    <button onclick="tampilkanHasil()">Proses</button>
+  </div>
+
+  <div id="hasilCard" class="card hidden">
+    <h2>Hasil Data Input</h2>
+    <div class="hasil">
+      <p>Data nama yang diinputkan adalah: <b id="outNama"></b></p>
+      <p>Alamat anda adalah: <b id="outAlamat"></b></p>
+      <p>Umur Anda adalah: <b id="outUmur"></b></p>
+      <p>Kelas Anda adalah: <b id="outKelas"></b></p>
+    </div>
+    <button onclick="kembali()">Kembali ke Form</button>
+  </div>
+
+  <script>
+    function tampilkanHasil() {
+      // Ambil nilai dari input
+      const nama = document.getElementById("nama").value;
+      const alamat = document.getElementById("alamat").value;
+      const umur = document.getElementById("umur").value;
+      const kelas = document.getElementById("kelas").value;
+
+      if (!nama || !alamat || !umur || !kelas) {
+        alert("Semua data harus diisi!");
+        return;
+      }
+      document.getElementById("outNama").textContent = nama;
+      document.getElementById("outAlamat").textContent = alamat;
+      document.getElementById("outUmur").textContent = umur;
+      document.getElementById("outKelas").textContent = kelas;
+
+      // Sembunyikan form dan tampilkan hasil
+      document.getElementById("formCard").classList.add("hidden");
+      document.getElementById("hasilCard").classList.remove("hidden");
+    }
+
+    function kembali() {
+      document.getElementById("formCard").classList.remove("hidden");
+      document.getElementById("hasilCard").classList.add("hidden");
+      document.getElementById("nama").value = "";
+      document.getElementById("alamat").value = "";
+      document.getElementById("umur").value = "";
+      document.getElementById("kelas").value = "";
+    }
+  </script>
+
+</body>
+</html>
+</body>
+</html>
