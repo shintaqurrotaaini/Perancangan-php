@@ -14,10 +14,9 @@ $nama_lengkap = $_POST['nama_lengkap'];
 $email = $_POST['email'];
 $tanggal_lahir = $_POST['tanggal_lahir'];
 $alamat = $_POST['alamat'];
-$program_yang_dipilih = $_POST['program_yang_dipilih'];
-$tanggal_input = $_POST['tanggal_input'];
+$program_dipilih = $koneksi->real_escape_string($_POST['program_dipilih']);
 
-$sql = "INSERT INTO users (nama_lengkap, email, tanggal_lahir, alamat, program_yang_dipilih) VALUES ('$nama_lengkap', '$email', '$tanggal_lahir', '$alamat', '$program_yang_dipilih')";
+$sql = "INSERT INTO biodata (nama_lengkap, email, tanggal_lahir, alamat, program_dipilih) VALUES ('$nama_lengkap', '$email', '$tanggal_lahir', '$alamat', '$program_dipilih')";
 
 if ($koneksi->query($sql) === TRUE) {
     echo "data berhasil disimpan!<br>";
